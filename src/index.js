@@ -4,15 +4,28 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import { ApolloProvider, ApolloClient, HttpLink, InMemoryCache, } from '@apollo/client';
+import { BrowserRouter } from "react-router-dom";
+import './index.scss';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: 'http://localhost:4000',
+  })
+})
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ApolloProvider>  
     </Provider>
   </React.StrictMode>
 );
