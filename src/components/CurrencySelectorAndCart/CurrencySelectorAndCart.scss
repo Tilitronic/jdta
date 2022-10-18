@@ -1,0 +1,71 @@
+@use '../../theme.scss';
+
+// .currencyUnitWrapper{
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// }
+.currencySelectorAndCart{
+  display: flex;
+  // flex-direction: row;
+  align-items: center;
+  height: 17px;
+}
+
+.dropdownCurrencies{
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+.currencyLogoAndCartElementWrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentCurrency{
+  font-family: theme.$main-font-medium;
+  font-size: 18px;
+  margin-right: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow{
+  margin-left: 10px;
+}
+
+//prevent text selection on currency buttons
+.currencySelector>*{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+
+.currencyUnit {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  font-family: theme.$main-font-medium;
+  font-size: 18px;
+  width: 114px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+}
+
+.currencyUnit:hover{
+  background-color: rgb(8, 104, 104);
+}
+
+.currencyUnit>:first-child{
+    margin-right: 5px;
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+}

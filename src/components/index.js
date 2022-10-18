@@ -1,3 +1,5 @@
 export {Header} from './Header';
-export {Bag} from './Bag';
 export {Dropdown} from './Dropdown';
+export {CurrencySelectorAndCart} from './CurrencySelectorAndCart'
+export {Cart} from './Cart';
+

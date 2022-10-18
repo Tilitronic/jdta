@@ -6,14 +6,9 @@ import {ProductPage} from './features/ProductPage';
 import {CartPage} from './features/CartPage';
 import {Header} from './components/Header';
 import { useState, useRef, useEffect } from 'react';
-import { useQuery, useLazyQuery } from '@apollo/client'
-import {currencies as currenciesQuery} from './api/gql.js'
 
 function App() {
   // const shouldUseEffect=useRef(true);
-  const currenciesData = useQuery(currenciesQuery)
-  console.log("currenciesData", currenciesData.data);
-
   // useEffect(()=>{
   //   if (shouldUseEffect.current){
   //     shouldUseEffect.current=false;

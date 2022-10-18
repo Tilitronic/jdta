@@ -1,0 +1,21 @@
+@use '../Header/Header.scss';
+
+$cart-wrapper-height: 17px;
+.cartWrapper{
+    max-height: $cart-wrapper-height;
+    // display: flex;
+    // align-items: center;
+}
+.cartMenu {
+  background-color: aqua;
+  max-height: calc(100vh - Header.$header-height);
+  width: 325px;
+  overflow-x: false;
+  overflow-y: auto;
+}
+
+.cartDropdown{
+    margin-top: calc(Header.$header-height / 2 - $cart-wrapper-height / 2 - 7px);
+    left: 100%;
+    transform: translateX(-100%);
+}

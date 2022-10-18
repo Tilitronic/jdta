@@ -1,8 +1,8 @@
 @use '../../../src/theme';
 
-
+$header-height: 80px;
 .header {
-    height: 80px;
+    height: $header-height;
     width: 100vw;
     background-color: blue;
     display: flex;
@@ -62,7 +62,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 22px;
+    
 }
 
 .currencyWrapper>*{
