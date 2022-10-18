@@ -46,7 +46,7 @@ $header-height: 80px;
 
 }
 
-.navButton.selected{
+.navButton.active{
     color: theme.$primary-color;
     font-family: theme.$main-font-semiBold;
     border-bottom: 2px solid theme.$primary-color;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 import './App.scss';
-import {HomePage} from './features/HomePage';
+import {ShowcasePage} from './features/ShowcasePage';
 import {ProductPage} from './features/ProductPage';
 import {CartPage} from './features/CartPage';
 import {Header} from './components/Header';
@@ -23,7 +23,9 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
+        <Route path='/' element={<ShowcasePage/>}/>
+        <Route path='/tech' element={<ShowcasePage/>}/>
+        <Route path='/clothes' element={<ShowcasePage/>}/>
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/product' element={<ProductPage/>}/>
       </Routes>
