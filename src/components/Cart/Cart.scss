@@ -1,21 +1,53 @@
 @use '../Header/Header.scss';
+@use '../../theme.scss';
 
 $cart-wrapper-height: 17px;
 .cartWrapper{
     max-height: $cart-wrapper-height;
+    height: fit-content;
     // display: flex;
     // align-items: center;
 }
+
+.cartIcon1Wrapper{
+  max-height: $cart-wrapper-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartWrapper:hover{
+  cursor: pointer;
+}
+
 .cartMenu {
-  background-color: aqua;
+  background-color: #8cd154;
   max-height: calc(100vh - Header.$header-height);
   width: 325px;
+
   overflow-x: false;
   overflow-y: auto;
 }
 
 .cartDropdown{
-    margin-top: calc(Header.$header-height / 2 - $cart-wrapper-height / 2 - 7px);
-    left: 100%;
-    transform: translateX(-100%);
+  margin-top: calc(Header.$header-height / 2 - $cart-wrapper-height / 2 );
+  left: 100%;
+  z-index: 9999;
+  transform: translateX(-100%);
 }
+
+.cartDirtyWindow{
+  position: absolute;
+  margin-top: calc(Header.$header-height);
+  // margin-left: calc((100vw - theme.$global-width) / 2);
+  height: calc(100vh - Header.$header-height);
+  width: 100%;
+  overflow: hidden;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.377);
+
+}
+
+

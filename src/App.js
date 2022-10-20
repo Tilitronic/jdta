@@ -27,7 +27,7 @@ function App() {
         <Route path='/tech' element={<ShowcasePage/>}/>
         <Route path='/clothes' element={<ShowcasePage/>}/>
         <Route path='/cart' element={<CartPage/>}/>
-        <Route path='/product' element={<ProductPage/>}/>
+        <Route path='/product/:id' element={<ProductPage/>}/>
       </Routes>
 
     </div>

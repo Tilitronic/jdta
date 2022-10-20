@@ -2,11 +2,13 @@
 
 $header-height: 80px;
 .header {
+    position: fixed;
     height: $header-height;
-    width: 100vw;
-    background-color: blue;
+    width: 100%;
     display: flex;
     justify-content: space-around;
+    background-color: #ffffff;
+    z-index: 99999;
     // flex-direction: row;
     // justify-content: space-between;
     // align-items: center;
@@ -25,38 +27,51 @@ $header-height: 80px;
 .navigation{
     height: 100%;
     width: 30%;
-    background-color: rgb(184, 81, 216);
     display: flex;
     align-items: flex-end;
+    
     flex-direction: row;
 }
 
-
+.navButtonWrapper{
+    position: relative;
+    height: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
 
 .navButton{
     height: 100%;
     display: flex;
     align-items: center;
-    
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 0;
-    border: 2px solid white;
+    border: 0;
+}
 
-    font-family: theme.$main-font-regular;
+.navButtonUnderline{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: theme.$primary-color;
+    transform: translateY(0%);
+}
 
+.navButton:hover{
+    cursor: pointer;
 }
 
 .navButton.active{
     color: theme.$primary-color;
     font-family: theme.$main-font-semiBold;
-    border-bottom: 2px solid theme.$primary-color;
+    // border-bottom: 2px solid theme.$primary-color;
 }
 
 
 .mainLogoWrapper svg{
     width: 31.18px;
     height: 29.93px;
-    background-color: black;
 }
 .currencyWrapper{
     display: flex;
@@ -74,7 +89,7 @@ $header-height: 80px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end;    
 }
 
 

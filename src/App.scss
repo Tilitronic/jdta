@@ -1,4 +1,8 @@
+@use 'theme.scss';
+
 body{
     margin: 0;
     padding: 0;
+    overflow-y: overlay; //not working in Firefox yet;
+    font-family: theme.$main-font-regular;
 }

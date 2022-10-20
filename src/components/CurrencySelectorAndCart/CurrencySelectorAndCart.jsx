@@ -12,8 +12,6 @@ import { ReactComponent as Arow } from '../../resources/icons/arrow.svg'
 import { Cart } from '../Cart/Cart';
 import { Dropdown } from '../Dropdown';
 
-
-
 import styles from './CurrencySelectorAndCart.scss';
 
 const Currencies =forwardRef(({ handleCurrencyClick }, ref)=> {
@@ -75,13 +73,13 @@ export function CurrencySelectorAndCart() {
             <div style={{ paddingRight: '5px' }} className='currentCurrency' onClick={handleCurrencyClick} ref={headRef}>
               {currentCurrency} <Arow className={isShow ? 'rotateArrow arrow' : 'arrow'} />
             </div>
-            <Cart />
+            
           </div>
         }
       >
         <Currencies handleCurrencyClick={handleCurrencyClick} ref={dropdownRef} />
       </Dropdown>
-
+      <Cart />
 
 
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import {ReactComponent as CartIcon} from '../../resources/icons/EmptyCart.svg'
+import { ReactComponent as CartIcon } from '../../resources/icons/EmptyCart.svg'
 import { Dropdown } from '../Dropdown';
 import { useOutsideClickDetector } from '../hooks/useOutsideClickDetector';
 import styles from './Cart.scss';
@@ -9,26 +9,31 @@ import styles from './Cart.scss';
 
 export function Cart() {
   const [isShow, setIsShow] = useState(false)
-  function handleCartClick(){
-      setIsShow(!isShow)
-    }
-   
+  function handleCartClick() {
+    setIsShow(!isShow)
+  }
+
   const iconRef = useRef(null)
-  useOutsideClickDetector(iconRef, isShow, handleCartClick)
+  const dropdownRef = useRef(null);
+  useOutsideClickDetector(iconRef, isShow, handleCartClick, dropdownRef)
 
   return (
-    <Dropdown
-      isShow={isShow}
-      head={
-      <div onClick={handleCartClick} ref={iconRef}>
-        <CartIcon />
-      </div>}
-      childrenClassName='cartDropdown'
-      className='cartWrapper'
-    >
-      <div className='cartMenu'>
-        cucucucucucucumber
-      </div>
-    </Dropdown>
+    <div>
+      <Dropdown
+        isShow={isShow}
+        head={
+          <div onClick={handleCartClick} ref={iconRef} className='cartIcon1Wrapper'>
+            <CartIcon className='cartIcon1' />
+          </div>}
+        childrenClassName='cartDropdown'
+        className='cartWrapper'
+      >
+        <div className='cartMenu' ref={dropdownRef}>
+          cucucucucucucumber
+        </div>
+
+      </Dropdown>
+      <div className={isShow ? 'cartDirtyWindow' : ''}></div>
+    </div>
   )
 }

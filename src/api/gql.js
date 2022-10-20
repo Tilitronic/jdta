@@ -1,4 +1,4 @@
-import {  gql } from '@apollo/client'
+import { gql } from '@apollo/client'
 
 
 
@@ -35,7 +35,7 @@ export const categories = gql`
     }
   }
 `
-const categoryName='all'
+const categoryName = 'all'
 export const category = gql`
 query{
     category(input: { title: "${categoryName}" }){
@@ -70,38 +70,41 @@ query{
 }
 `
 
-const id='654654'
-export const product = gql`
-query{
-    product(id: "${id}"){
-        id,
-        name,
-        inStock,
-        gallery,
-        description,
-        category,
-        attributes{
-        id,
-        name,
-        type,
-        items {
-            displayValue,
-            value,
-            id
-        }
-        },
-        prices{
-            currency{
-            label,
-            symbol
-            },
-            amount
-        },
-        brand
-    }
-}
-`
 
+export function makeProductQuery(productId = '') {
+
+  const product = gql`
+  query{
+      product(id: "${productId}"){
+          id,
+          name,
+          inStock,
+          gallery,
+          description,
+          category,
+          attributes{
+          id,
+          name,
+          type,
+          items {
+              displayValue,
+              value,
+              id
+          }
+          },
+          prices{
+              currency{
+              label,
+              symbol
+              },
+              amount
+          },
+          brand
+      }
+  }
+  `
+  return product
+}
 export const currencies = gql`
 query{
     currencies{

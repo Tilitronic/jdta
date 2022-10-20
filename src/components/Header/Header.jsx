@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './Header.scss';
 import {ReactComponent as MainLogo} from '../../resources/icons/MainLogo.svg'
-import {ReactComponent as Arow} from '../../resources/icons/arrow.svg'
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CurrencySelectorAndCart } from '../../components/CurrencySelectorAndCart';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -22,20 +21,45 @@ const locations = [
 ]
 
 function NavigaionButons(){
+  const shouldUseEffect=useRef(true);
   const [activeButton, setActiveButton] = useState('all')
   const navigate = useNavigate();
-  function navigateTo(location, ){
-    navigate(location)
-  }
+
   function handleClick(pathname, name){
-    navigateTo(pathname)
+    navigate(pathname)
     setActiveButton(name)
   }
-  const elementsAr = locations.map((obj)=>{
+
+  const location=useLocation();
+  useEffect(()=>{
+    if (shouldUseEffect.current){
+      const pathname = location.pathname;
+      switch (pathname) {
+        case '/':
+          setActiveButton('all')
+          break;
+        case '/tech':
+          setActiveButton('tech')
+          break; 
+        case '/clothes':
+          setActiveButton('clothes')
+          break;
+        default:
+          setActiveButton('all')
+          break;
+      }
+    }
+
+  }, [location])
+  const elementsAr = locations.map((obj, index)=>{
     return(
-      <button key={obj.name+'NavButon'} className={obj.name===activeButton ? 'active navButton' : 'navButton'} onClick={()=>handleClick(obj.pathname, obj.name)}>
-        <span>{obj.name.toUpperCase()}</span>
-      </button>
+      <div className='navButtonWrapper' key={'headerNavButon'+index}>
+        <button key={obj.name+'NavButon'} className={obj.name===activeButton ? 'active navButton' : 'navButton'} onClick={()=>handleClick(obj.pathname, obj.name)}>
+          <span>{obj.name.toUpperCase()}</span>
+        </button>
+        <div className={obj.name===activeButton ? 'navButtonUnderline' : ''}></div>
+      </div>
+
     )
   })
   return elementsAr
