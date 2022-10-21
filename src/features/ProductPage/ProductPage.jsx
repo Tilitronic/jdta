@@ -4,6 +4,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { makeProductQuery } from '../../api/gql';
 import { useSelector } from 'react-redux';
+import parse from 'html-react-parser';
 
 import styles from './ProductPage.scss';
 
@@ -86,7 +87,7 @@ export function ProductPage() {
         </div>
         <div className='productDetails'>
           <div className='productName'>
-            <h1>{data.product.name}</h1>
+            <h1>{data.product.brand+' '+data.product.name}</h1>
           </div>
           <div className='productAttributes'>
             <Attributes data={data.product.attributes}/>
