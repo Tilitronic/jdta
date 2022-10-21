@@ -1,0 +1,36 @@
+@use '../../../../src/theme';
+
+.navButtonWrapper{
+    position: relative;
+    height: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+.navButton{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0;
+    border: 0;
+}
+
+.navButtonUnderline{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: theme.$primary-color;
+    transform: translateY(0%);
+}
+
+.navButton:hover{
+    cursor: pointer;
+}
+
+.navButton.active{
+    color: theme.$primary-color;
+    font-family: theme.$main-font-semiBold;
+    // border-bottom: 2px solid theme.$primary-color;
+}

@@ -1,0 +1,28 @@
+.smallPicture{
+    width: 79px;
+    height: 80px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smallPicture>:last-child{
+    margin-bottom: 0;
+}
+
+.smallPicture>img{
+    max-width: 79px;
+    max-height: 80px;
+}
+
+.smallPicture>img:hover{
+    cursor: pointer;
+}
+
+.smallPictures{
+    display: flex;
+    flex-direction: column;
+    max-height: 511px;
+    overflow-y: auto;
+    width: 120px;
+}

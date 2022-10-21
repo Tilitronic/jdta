@@ -1,0 +1,25 @@
+@use '../../../theme.scss';
+
+.currencyUnitWrapper{
+    width: 114px;
+
+}
+.currencyUnit {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    font-family: theme.$main-font-medium;
+    font-size: 18px;
+    height: 45px;
+    align-items: center;
+    padding-left: 19px;
+}
+
+.currencyUnit:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.currencyUnit>:first-child{
+    margin-right: 5px;
+}

@@ -6,62 +6,9 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-
-import { ReactComponent as AddToCartIcon } from '../../resources/icons/AddToCart.svg';
+import { Products } from './Products/Component';
 
 import styles from './ShowcasePage.scss';
-
-function Product({ obj }) {
-  const navigate = useNavigate();
-  const currentCurrency = useSelector(state => state.currency.currentCurrency)
-  const picture = obj.gallery[0];
-  const price = obj.prices.filter((obj) => obj.currency.symbol === currentCurrency)[0]
-  const [addToCartClass, setAddToCartClass] = useState('addToCart')
-  const handleMouseOverlay = (move) => {
-    if (move === 'over' && obj.inStock) {
-      setAddToCartClass('addToCart active')
-    }
-    else if (move === 'out') {
-      setAddToCartClass('addToCart')
-    }
-  }
-
-
-
-  return (
-    <div className='productIetemWrapper' key={obj.id}>
-      <div className='productItetm' onMouseOver={() => handleMouseOverlay('over')} onMouseOut={() => handleMouseOverlay('out')}>
-      
-        <Link to={'/product'+'/'+obj.id}>
-        <div className={!obj.inStock ? 'outOfStockProduct' : ''}>
-          <div className={!obj.inStock ? 'outOfStockPicture' : ''}>
-            <p style={{display: !obj.inStock ? 'absolute' : 'none'}} className='outOfStockText'>OUT OF STOCK</p>
-          </div>
-        </div>
-        
-        <div className='showcasePicture'>
-          <img src={picture} alt={'Picture of ' + obj.name} />
-        </div>
-        </Link>
-        <div className={addToCartClass}><AddToCartIcon /></div>
-        <div className={!obj.inStock ? 'showcaseName outOfStock' : 'showcaseName'}>
-          <p>{obj.name}</p>
-        </div>
-        <div className={!obj.inStock ? 'showcasePrice outOfStock' : 'showcasePrice'}>
-          {price.currency.symbol + price.amount}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function Products({ data }) {
-
-  const elementsAr = data.map((obj) => {
-    return (<Product obj={obj} />)
-  })
-  return elementsAr
-}
 
 export function ShowcasePage() {
   const [activeCategory, setActiveCategory] = useState('all')
