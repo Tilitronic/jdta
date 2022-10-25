@@ -1,23 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './Header.scss';
 import {ReactComponent as MainLogo} from '../../resources/icons/MainLogo.svg'
-import { CurrencySelectorAndCart } from '../../components/CurrencySelectorAndCart';
-import { useLocation } from 'react-router-dom';
+import CurrencySelectorAndCart from '../../components/CurrencySelectorAndCart';
+// import { useLocation } from 'react-router-dom';
 
-import { NavigaionButons } from './NavigaionButons';
+import NavigationButtons from './NavigationButtons';
+// import { Component } from '../../features/ShowcasePage/Component copy';
 
+export class Header extends Component{
 
-export function Header() {
-
-  const location=useLocation();
-
-
-  return (
-    <div className='header'>
+  render(){
+    return(
+      <div className='header'>
       <div className='headerElementsWrapper'>
 
         <div className='navigation'>
-          <NavigaionButons/>
+          <NavigationButtons/>
         </div>
 
         <div className='mainLogoWrapper'>
@@ -30,5 +28,31 @@ export function Header() {
 
       </div>   
     </div>
-  )
+    )
+  }
 }
+
+// export function Header() {
+
+
+
+//   return (
+//     <div className='header'>
+//       <div className='headerElementsWrapper'>
+
+//         <div className='navigation'>
+//           <NavigationButtons/>
+//         </div>
+
+//         <div className='mainLogoWrapper'>
+//           <MainLogo/>
+//         </div>
+
+//         <div className='currencyAndCartWrapper'>
+//             <CurrencySelectorAndCart/>
+//         </div>
+
+//       </div>   
+//     </div>
+//   )
+// }

@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import currencyReducer from '../components/CurrencySelectorAndCart/currencySlice.js';
-
+import categoryReducer from '../features/ShowcasePage/categorySlice.js'
 export const store = configureStore({
   reducer: {
     currency: currencyReducer,
+    category: categoryReducer
   },
 });

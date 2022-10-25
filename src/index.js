@@ -11,7 +11,7 @@ import './index.scss';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
     uri: 'http://localhost:4000',
@@ -19,7 +19,7 @@ const client = new ApolloClient({
 })
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <ApolloProvider client={client}>
         <BrowserRouter>
@@ -27,7 +27,7 @@ root.render(
         </BrowserRouter>
       </ApolloProvider>  
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

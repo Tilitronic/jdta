@@ -1,74 +1,50 @@
-import { gql } from '@apollo/client'
+import { gql, ApolloClient, NormalizedCacheObject } from '@apollo/client'
 
 
 
 export const categories = gql`
   query{
     categories{
-      name,
-      products{
-          id,
-          name,
-          inStock,
-          gallery,
-          description,
-          category,
-          attributes{
-            id,
-            name,
-            type,
-            items {
-              displayValue,
-              value,
-              id
-            }
-          },
-          prices{
-              currency{
-                label,
-                symbol
-              },
-              amount
-          },
-          brand
-      }
+      name
     }
   }
 `
-const categoryName = 'all'
-export const category = gql`
-query{
-    category(input: { title: "${categoryName}" }){
-        name,
-        products{
-            id,
-            name,
-            inStock,
-            gallery,
-            description,
-            category,
-            attributes{
-                id,
-                name,
-                type,
-                items {
-                displayValue,
-                value,
-                id
-                }
-            },
-            prices{
-                currency{
-                    label,
-                    symbol
-                },
-                amount
-            },
-            brand
-        }
-    }
+export function makeCategoryQuery(categoryName='all'){
+  const category = gql`
+  query{
+      category(input: { title: "${categoryName}" }){
+          name,
+          products{
+              id,
+              name,
+              inStock,
+              gallery,
+              description,
+              category,
+              attributes{
+                  id,
+                  name,
+                  type,
+                  items {
+                  displayValue,
+                  value,
+                  id
+                  }
+              },
+              prices{
+                  currency{
+                      label,
+                      symbol
+                  },
+                  amount
+              },
+              brand
+          }
+      }
+  }
+  `
+  return category
 }
-`
 
 
 export function makeProductQuery(productId = '') {
