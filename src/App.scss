@@ -6,3 +6,7 @@ body{
     overflow-y: overlay; //not working in Firefox yet;
     font-family: theme.$main-font-regular;
 }
+p{
+    padding: 0;
+    margin: 0;
+}

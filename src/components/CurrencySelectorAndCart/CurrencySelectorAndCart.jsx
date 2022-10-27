@@ -5,7 +5,7 @@ import { useOutsideClickDetector } from '../hooks/useOutsideClickDetector';
 // import { useSelector } from 'react-redux';
 
 import { ReactComponent as Arow } from '../../resources/icons/arrow.svg'
-import { Cart } from '../Cart/Cart';
+import Cart from '../Cart';
 import { Dropdown } from '../Dropdown';
 import Currencies from './Currencies';
 

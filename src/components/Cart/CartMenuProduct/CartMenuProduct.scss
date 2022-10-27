@@ -1,0 +1,144 @@
+@use '../../../theme.scss';
+.cartMenuProductElementsWrapper{
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.cartMenuProductElementsWrapper>*{
+    margin-right: 4px;
+    min-height: 100%;
+
+}
+.cartMenuProductElementsWrapper>:last-child{
+    margin-right: 0;
+}
+
+//DETAILS
+.cartMenuProductDetails{
+    min-width: 136px;
+}
+
+.CMPbrand{
+    margin-bottom: 5px;
+}
+.CMPprice{
+    font-family: theme.$main-font-semiBold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+// DETAILS attributes
+.CMPattributeItemsWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.CMPattributeItemsWrapper>*{
+    margin-right:  8px;
+}
+.CMPattributeItemsWrapper>:last-child{
+    margin-right:  0;
+}
+.CMPattributeName{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.CMPattributeItem{
+    font-size: 14px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.CMPattributeItem.Size{
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+.CMPattributeItem.Size>.CMPattributeDisplayValue{
+    display: none;
+}
+
+.CMPattributeItem.selected{
+    background-color: black;
+    color: #ffffff;
+}
+
+.CMPattributeItem.Color>.CMPattributeDisplayValue{
+    display: none;
+}
+.CMPattributeItem.Color>.CMPattributeValue{
+    display: none;
+}
+
+.CMPattributeItem.Color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    margin-right: 0;
+    border: 0;
+}
+.CMPattributeItemsWrapper.Color>*{
+    margin-right:  6px;
+}
+.CMPattributeItemsWrapper.Color>:last-child{
+    margin-right:  0;
+}
+.CMPattributeItem.Color.selected{
+    background-color: white;
+    border: 1px solid theme.$primary-color;
+}
+.CMPattributeItem.Color>.CMPcolorAttribute{
+    width: 16px;
+    height: 16px;
+}
+
+//AMOUNT CONTROL
+
+.CMPamountControl{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 24px;
+}
+.CMPamountControl>button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: #ffffff;
+    font-family: theme.$main-font-regular;
+    font-size: 25px;
+    height: 24px;
+    width: 24px;
+}
+
+.CMPamountControl>button:hover{
+    cursor: pointer;
+}
+
+//PICTURE
+
+.CMPpicture{
+    max-width: 121px;
+    min-width: 121px;
+    align-self: center;
+}

@@ -36,6 +36,8 @@ class ShowcasePageWithoutRouter extends Component {
     }
   }
 
+  
+
   render() {
     
     if (this.state.data){

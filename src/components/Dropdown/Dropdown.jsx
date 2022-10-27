@@ -3,17 +3,13 @@ import styles from './Dropdown.css';
 
 
 export class Dropdown extends Component {
-  children = this.props.children;
-  className = this.props.className;
-  childrenClassName = this.props.childrenClassName
-
   render(){ return(
-    <div style={{position: 'relative'}} className={this.className}>
+    <div style={{position: 'relative'}} className={this.props.className}>
     <div style={{display: 'flex', alignItems: 'center'}}>
       {this.props.head}
     </div>
-    <div style={{display: this.props.isShow ? 'block' : 'none', position: 'absolute'}} className={this.childrenClassName}>
-    {this.children}
+    <div style={{display: this.props.isShow ? 'block' : 'none', position: 'absolute'}} className={this.props.childrenClassName}>
+    {this.props.children}
     </div>
     
   </div>

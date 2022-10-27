@@ -17,6 +17,33 @@ export class Product extends Component{
     else if (move === 'out') {
       this.setState({addToCartClass : 'addToCart'})
   }}
+
+  handleAddToCartClick = function(inStock, product){
+    if(!inStock){
+      alert('There is no way you can add an absent in stock item to cart!')
+    } 
+    else {
+      let cartKey = product.id+'_';
+      const attributesAr = product.attributes.map((obj, index)=>{
+        const newJSONObj=JSON.stringify(obj)
+        const newObj=JSON.parse(newJSONObj)
+        newObj.selectedAttribute = 0;
+        cartKey+='a'+index+'i'+0+'_';
+        return newObj})
+
+      const Product ={
+        id: product.id,
+        cartKey: cartKey,
+        brand: product.brand,
+        name: product.name,
+        amount: 1,
+        attributes: attributesAr,
+        prices: product.prices,
+        gallery: product.gallery
+      }
+      this.props.updateProductsList(Product)
+    }
+  }
   render(){
     const picture = this.props.obj.gallery[0];
     const price = this.props.obj.prices.filter((obj) => obj.currency.symbol === this.props.currentCurrency)[0]
@@ -35,7 +62,7 @@ export class Product extends Component{
           <img src={picture} alt={'Picture of ' + this.props.obj.name} />
         </div>
         </Link>
-        <div className={this.state.addToCartClass}><AddToCartIcon /></div>
+        <div className={this.state.addToCartClass} onClick={()=>this.handleAddToCartClick(this.props.obj.inStock, this.props.obj)}><AddToCartIcon /></div>
         <div className={!this.props.obj.inStock ? 'showcaseName outOfStock' : 'showcaseName'}>
           <p>{this.props.obj.name}</p>
         </div>

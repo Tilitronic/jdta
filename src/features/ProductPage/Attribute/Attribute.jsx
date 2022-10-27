@@ -8,8 +8,12 @@ export class Attribute extends Component{
   attributeName = this.props.data.name
   handleClick = function(elementIndex){
     this.setState({selectedAttribute : elementIndex})
+    this.props.setSelectedAttributes(this.props.parentIndex, elementIndex)
   }
 
+  componentDidMount(){
+    this.props.setSelectedAttributes(this.props.parentIndex, 0)
+  }
 
 
   render(){
