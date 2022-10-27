@@ -6,9 +6,9 @@ import { useOutsideClickDetector } from '../hooks/useOutsideClickDetector';
 import styles from './Cart.scss';
 import CartMenuProduct from './CartMenuProduct';
 import parse from 'html-react-parser';
+import { withRouter } from 'react-router-dom';
 
-
-export class Cart extends Component {
+class CartRoutless extends Component {
   state = {
     isShow: false,
     itemsInCart: 0,
@@ -17,10 +17,6 @@ export class Cart extends Component {
   iconRef = React.createRef();
   handleClickOutside = this.handleClickOutside.bind(this);
 
-
-  handleCartClick = () => {
-    this.setState({ isShow: !this.state.isShow })
-  }
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
@@ -39,6 +35,15 @@ export class Cart extends Component {
     if (this.state.itemsInCart !== this.props.productsList.length) {
       this.setState({ itemsInCart: this.props.productsList.length })
     }
+  }
+
+  handleCartClick = () => {
+    this.setState({ isShow: !this.state.isShow })
+  }
+
+  handleViewBagClick = ()=>{
+    this.props.history.push('/cart')
+    this.setState({ isShow: !this.state.isShow })
   }
 
   roundNumber = function (number){
@@ -80,7 +85,7 @@ export class Cart extends Component {
               </div>
 
               <div className='cartMenuButtonsWrapper1'>
-                <button className='cMviewBagButton'>VIEW BAG</button>
+                <button className='cMviewBagButton' onClick={()=>this.handleViewBagClick()}>VIEW BAG</button>
                 <button className='cMcheckOutButton'>CHECK OUT</button>
               </div>
 
@@ -93,6 +98,8 @@ export class Cart extends Component {
     )
   }
 }
+
+export const Cart = withRouter(CartRoutless); 
 
 // export function Cart() {
 //   const [isShow, setIsShow] = useState(false)

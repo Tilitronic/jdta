@@ -3,12 +3,12 @@ import { Routes, Switch, Route} from "react-router-dom"
 import './App.scss';
 import ShowcasePage from './features/ShowcasePage';
 import ProductPage from './features/ProductPage';
-import {CartPage} from './features/CartPage';
+import CartPage from './features/CartPage';
 import {Header} from './components/Header';
 import { useState, useRef, useEffect } from 'react';
 
-function App() {
-
+class  App extends React.Component{
+render(){
   return (
     // <BrowserRouter>
     <div className="App">
@@ -21,6 +21,7 @@ function App() {
     </div>
     // </BrowserRouter>
   );
+}
 }
 
 

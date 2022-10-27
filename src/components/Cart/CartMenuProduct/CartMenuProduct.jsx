@@ -1,5 +1,6 @@
 import styles from './CartMenuProduct.scss';
 import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 export class CartMenuProduct extends Component {

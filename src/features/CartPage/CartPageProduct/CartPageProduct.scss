@@ -1,0 +1,200 @@
+@use '../../../theme.scss';
+.CPPrule{
+    color: #E5E5E5;
+    background-color: #E5E5E5;
+    border: 1px solid #E5E5E5;
+
+}
+.cartPageProductElementsWrapper{
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.cartPageProductElementsWrapper>*{
+    margin-right: 4px;
+    min-height: 100%;
+
+}
+.cartPageProductElementsWrapper>:last-child{
+    margin-right: 0;
+}
+
+//DETAILS
+.cartPageProductDetails{
+    min-width: 947px;
+}
+
+.CPPbrand{
+    font-family: theme.$main-font-semiBold;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.CPPname{
+    font-size: 30px;
+}
+.CPPprice{
+    font-family: theme.$main-font-semiBold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+// DETAILS attributes
+.CPPattributes>*{
+    margin-bottom: 17px;
+}
+.CPPattributes>:last-child{
+    margin-bottom: 0;
+}
+.CPPattributeItemsWrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.CPPattributeItemsWrapper>*{
+    margin-right:  8px;
+}
+.CPPattributeItemsWrapper>:last-child{
+    margin-right:  0;
+}
+.CPPattributeName{
+    font-family: theme.$main-font-semiBold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.CPPattributeItem{
+    font-size: 14px;
+    height: 45px;
+    min-width: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+.CPPattributeValue{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.CPPattributeItem.Size{
+    width: 63px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+.CPPattributeItem.Size>.CPPattributeDisplayValue{
+    display: none;
+}
+
+.CPPattributeItem.selected{
+    background-color: black;
+    color: #ffffff;
+}
+
+.CPPattributeItem.Color>.CPPattributeDisplayValue{
+    display: none;
+}
+.CPPattributeItem.Color>.CPPattributeValue{
+    display: none;
+}
+
+.CPPattributeItem.Color{
+    min-width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 36px;
+    max-width: 36px;
+    height: 36px;
+    margin-right: 0;
+    border: 0;
+}
+.CPPattributeItemsWrapper.Color>*{
+    margin-right:  5px;
+}
+.CPPattributeItemsWrapper.Color>:last-child{
+    margin-right:  0;
+}
+.CPPattributeItem.Color.selected{
+    background-color: white;
+    border: 1px solid theme.$primary-color;
+}
+.CPPattributeItem.Color>.CPPcolorAttribute{
+    width: 32px;
+    height: 32px;
+}
+
+//AMOUNT CONTROL
+
+.CPPamountControl{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 45px;
+}
+.CPPamountControl>button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: #ffffff;
+    font-family: theme.$main-font-regular;
+    font-size: 35px;
+    height: 45px;
+    width: 45px;
+}
+
+.CPPamountControl>button:hover{
+    cursor: pointer;
+}
+
+//PICTURE
+.CPPpictureWrapper{
+    position: relative;
+    max-width: 200px;
+    min-width: 200px;
+    align-self: center;
+}
+.CPPpicture{
+    max-width: 200px;
+}
+
+.CPPpictureControl{
+    left: 65%;
+    transform: translateY(-165%);
+    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 56px;
+}
+
+.CPPcontrolButton{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000071;
+}
+
+.CPPcontrolButton.next{
+    transform: rotate(180deg);
+}
+.CPPcontrolButton:hover{
+    cursor: pointer;
+}

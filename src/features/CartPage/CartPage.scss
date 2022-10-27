@@ -1,0 +1,49 @@
+@use '../../../src/theme';
+@use '../../components/Header/Header.scss';
+.cartPageWrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.CPelementsWrapper{
+    width: theme.$global-width;
+}
+.CPtitle{
+    font-size: 32px;
+    font-family: theme.$main-font-semiBold;
+    margin-top: calc(Header.$header-height + 42px);
+    margin-bottom: 42px;
+}
+
+.CPbottomElementsWrapper>*{
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.CPbottomElementsWrapper>:last-child{
+    margin: 0;
+}
+.CBPtextWrapper{
+    display: flex;
+    flex-direction: row;
+}
+.CBPtextWrapper>*{
+    margin: 0;
+    margin-right: 5px;
+    padding: 0;
+}
+.CPBfirstText{
+    width: 100px;
+}
+.CPBsecondText{
+    font-family: theme.$main-font-semiBold;
+}
+.CBorderButton{
+    width: 279px;
+    height: 43px;
+    border: 0;
+    color: #ffffff;
+    background-color: theme.$primary-color;
+}
+.CBorderButton:hover{
+    cursor: pointer;
+}
