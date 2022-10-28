@@ -1,6 +1,6 @@
 @use '../../../src/theme';
 @use '../../components/Header/Header.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 .productPageWrapper {
     display: flex;
@@ -46,6 +46,7 @@
 
 .productNameBrand{
     font-family: theme.$main-font-semiBold;
+    margin-bottom: 10px;
 }
 
 $margin: 20px;
@@ -86,7 +87,7 @@ $margin: 20px;
 
 //ATTRIBUTES
 .productAttribute>p{
-    font-family: theme.$main-font-semiBold;
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 18px;
 }
 
@@ -162,4 +163,8 @@ $margin: 20px;
     height: 32px;
     width: 32px;
 
+}
+
+.productDesctiprion{
+    line-height: 160%;
 }

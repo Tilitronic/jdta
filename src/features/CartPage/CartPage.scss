@@ -22,6 +22,14 @@
 .CPbottomElementsWrapper>:last-child{
     margin: 0;
 }
+
+.CPproductsWrapper>*{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.CPproductsWrapper>:last-child{
+    margin-bottom: 40px;
+}
 .CBPtextWrapper{
     display: flex;
     flex-direction: row;
@@ -43,6 +51,7 @@
     border: 0;
     color: #ffffff;
     background-color: theme.$primary-color;
+    margin-bottom: 100px;
 }
 .CBorderButton:hover{
     cursor: pointer;

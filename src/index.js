@@ -6,6 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloProvider, ApolloClient, HttpLink, InMemoryCache, } from '@apollo/client';
 import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistor } from './app/store';
 import './index.scss';
 
 const container = document.getElementById('root');
@@ -20,13 +22,15 @@ export const client = new ApolloClient({
 
 root.render(
   // <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <ApolloProvider client={client}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </ApolloProvider>  
-    </Provider>
+      </ApolloProvider>
+    </PersistGate>
+  </Provider>
   // </React.StrictMode>
 );
 

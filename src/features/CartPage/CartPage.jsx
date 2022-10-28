@@ -26,6 +26,7 @@ export class CartPage extends Component{
             { this.props.productsList.map((obj, index) => {
                     return <CartPageProduct data={obj} key={'CartPageProduct' + index} />
             })}
+            <hr className='CPPrule'/>
         </div>
 
         <div className='CPbottomElementsWrapper'>

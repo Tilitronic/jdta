@@ -10,8 +10,7 @@ import { withRouter } from 'react-router-dom';
 
 class CartRoutless extends Component {
   state = {
-    isShow: false,
-    itemsInCart: 0,
+    isShow: false
   };
   dropdownRef = React.createRef();
   iconRef = React.createRef();
@@ -28,12 +27,6 @@ class CartRoutless extends Component {
   handleClickOutside(event) {
     if (this.iconRef && !this.iconRef.current.contains(event.target) && !this.dropdownRef.current.contains(event.target) && this.state.isShow) {
       this.setState({ isShow: !this.state.isShow });
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.itemsInCart !== this.props.productsList.length) {
-      this.setState({ itemsInCart: this.props.productsList.length })
     }
   }
 
@@ -58,7 +51,7 @@ class CartRoutless extends Component {
           head={
             <div onClick={this.handleCartClick} ref={this.iconRef} className='cartIcon1Wrapper'>
               <CartIcon className='cartIcon1' />
-              <div className='cartItemNumber' style={{ display: this.state.itemsInCart>0? 'flex': 'none'}}>{this.state.itemsInCart}</div>
+              <div className='cartItemNumber' style={{ display: this.props.productsList.length>0? 'flex': 'none'}}>{this.props.productsList.length}</div>
             </div>}
           childrenClassName='cartDropdown'
           className='cartWrapper'
@@ -101,33 +94,3 @@ class CartRoutless extends Component {
 
 export const Cart = withRouter(CartRoutless); 
 
-// export function Cart() {
-//   const [isShow, setIsShow] = useState(false)
-//   function handleCartClick() {
-//     setIsShow(!isShow)
-//   }
-
-//   const iconRef = useRef(null)
-//   const dropdownRef = useRef(null);
-//   useOutsideClickDetector(iconRef, isShow, handleCartClick, dropdownRef)
-
-//   return (
-//     <div>
-//       <Dropdown
-//         isShow={isShow}
-//         head={
-//           <div onClick={handleCartClick} ref={iconRef} className='cartIcon1Wrapper'>
-//             <CartIcon className='cartIcon1' />
-//           </div>}
-//         childrenClassName='cartDropdown'
-//         className='cartWrapper'
-//       >
-//         <div className='cartMenu' ref={dropdownRef}>
-//           cucucucucucucumber
-//         </div>
-
-//       </Dropdown>
-//       <div className={isShow ? 'cartDirtyWindow' : ''}></div>
-//     </div>
-//   )
-// }

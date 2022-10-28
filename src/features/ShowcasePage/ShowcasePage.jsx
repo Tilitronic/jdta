@@ -48,7 +48,7 @@ class ShowcasePageWithoutRouter extends Component {
               {this.state.data?.name.slice(0, 1).toUpperCase() + this.state.data?.name.slice(1)}
             </div>
             <div className='produtsWrapper'>
-              <Products data={this.state.data.products} />
+              <Products data={this.state.data.products}/>
             </div>
           </div>
         </div>
@@ -61,50 +61,3 @@ class ShowcasePageWithoutRouter extends Component {
 
 export const ShowcasePage = withRouter(ShowcasePageWithoutRouter)
 
-// export function ShowcasePage() {
-//   const [activeCategory, setActiveCategory] = useState('all')
-//   const shouldUseEffect = useRef(true);
-//   const { loading, error, data } = useQuery(categoriesQuery)
-//   const location = useLocation();
-//   useEffect(() => {
-//     if (shouldUseEffect.current) {
-//       const pathname = location.pathname;
-//       switch (pathname) {
-//         case '/':
-//           setActiveCategory('all')
-//           break;
-//         case '/tech':
-//           setActiveCategory('tech')
-//           break;
-//         case '/clothes':
-//           setActiveCategory('clothes')
-//           break;
-//         default:
-//           setActiveCategory('all')
-//           break;
-//       }
-//     }
-
-//   }, [location])
-//   if (loading) return 'Loading...';
-//   if (error) return `Error! ${error.message}`;
-
-//   // const  categoriesAr = data.categories.map(el=>el.name)
-
-//   const dataToShow = data.categories.filter((obj) => obj.name === activeCategory)[0]
-//   console.log("dataToShow", dataToShow);
-
-
-//   return (
-//     <div className='showcaseWrapper'>
-//       <div className='sjowcaseElementsWrapper'>
-//         <div className='categoryName'>
-//           {dataToShow.name.slice(0, 1).toUpperCase() + dataToShow.name.slice(1)}
-//         </div>
-//         <div className='produtsWrapper'>
-//           <Products data={dataToShow.products} />
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }

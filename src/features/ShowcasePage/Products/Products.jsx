@@ -9,10 +9,3 @@ export class Products extends Component{
     return elementsAr
   }
 }
-// export function Products({ data }) {
-
-//     const elementsAr = data.map((obj, index) => {
-//       return (<Product obj={obj} key={'product'+index}/>)
-//     })
-//     return elementsAr
-//   }

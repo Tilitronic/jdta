@@ -34,7 +34,7 @@ class ProductPageWithoutRouter extends Component {
       .query({ query: productQuery })
       .then((result) => {
         this.setState({ data: result.data })
-        console.log("result", result);
+        // console.log("result", result);
       })
   }
   componentDidMount() {
@@ -78,7 +78,7 @@ class ProductPageWithoutRouter extends Component {
 
   render() {
     if (!this.state.data) { return null }
-    console.log("this.state.data", this.state.data);
+    // console.log("this.state.data", this.state.data);
     const price = this.state.data.product.prices.filter((obj) => obj.currency.symbol === this.props.currentCurrency)[0]
     return (
       <div className='productPageWrapper'>
@@ -115,49 +115,3 @@ class ProductPageWithoutRouter extends Component {
 }
 
 export const ProductPage = withRouter(ProductPageWithoutRouter)
-
-// export function ProductPage() {
-//   const [activeImage, setAciveImage] = useState(0);
-//   // const shouldUseEffect=useRef(true);
-//   const params = useParams()
-//   const productId = params.id;
-//   const productQuery = makeProductQuery(productId)
-//   const { loading, error, data } = useQuery(productQuery)
-//   const currentCurrency = useSelector(state => state.currency.currentCurrency)
-
-//   if (loading) return 'Loading...';
-//   if (error) return `Error! ${error.message}`;
-//   const price = data.product.prices.filter((obj) => obj.currency.symbol === currentCurrency)[0]
-//   console.log("data", data);
-
-//   return (
-//     <div className='productPageWrapper'>
-//       <div className='productPageElementsWrapper'>
-//         <div className='smallPictures'>
-//           <SmallPictures data={data.product.gallery} setState={setAciveImage} />
-//         </div>
-//         <div className='MainPicture'>
-//           <img src={data.product.gallery[activeImage]} alt='Product' />
-//         </div>
-//         <div className='productDetails'>
-//           <div className='productName'>
-//             <h1>{data.product.brand+' '+data.product.name}</h1>
-//           </div>
-//           <div className='productAttributes'>
-//             <Attributes data={data.product.attributes}/>
-//           </div>
-//           <div className='productPrice'>
-//             <p className='priceWord'>PRICE:</p>
-//             <p className='priceValue'>{price.currency.symbol}{price.amount}</p>
-//           </div>
-//           <div className='addToCartPPtButton'>
-//             <button>ADD TO CART</button>
-//           </div>
-//           <div className='productDesctiprion'>
-//             <div>{parse(data.product.description)}</div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }

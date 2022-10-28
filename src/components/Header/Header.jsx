@@ -32,27 +32,3 @@ export class Header extends Component{
   }
 }
 
-// export function Header() {
-
-
-
-//   return (
-//     <div className='header'>
-//       <div className='headerElementsWrapper'>
-
-//         <div className='navigation'>
-//           <NavigationButtons/>
-//         </div>
-
-//         <div className='mainLogoWrapper'>
-//           <MainLogo/>
-//         </div>
-
-//         <div className='currencyAndCartWrapper'>
-//             <CurrencySelectorAndCart/>
-//         </div>
-
-//       </div>   
-//     </div>
-//   )
-// }

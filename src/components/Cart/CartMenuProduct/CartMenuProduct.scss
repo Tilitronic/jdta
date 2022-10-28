@@ -22,7 +22,10 @@
 }
 
 .CMPbrand{
-    margin-bottom: 5px;
+    line-height: 160%;
+}
+.CMPname{
+    line-height: 160%;
 }
 .CMPprice{
     font-family: theme.$main-font-semiBold;
@@ -44,8 +47,8 @@
     margin-right:  0;
 }
 .CMPattributeName{
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 .CMPattributeItem{
     font-size: 14px;
@@ -130,7 +133,20 @@
     height: 24px;
     width: 24px;
 }
+.CMPamount{
+    position: relative;
+}
+.CMPamount>hr{
+    position: absolute;
+    width: 8px;
+    height: 1px;
+    background-color: black;
+    border: none;
 
+}
+.CMPamount.plus>:nth-child(2){
+    transform: rotate(90deg);
+}
 .CMPamountControl>button:hover{
     cursor: pointer;
 }

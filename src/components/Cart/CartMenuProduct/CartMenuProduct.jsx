@@ -14,7 +14,7 @@ export class CartMenuProduct extends Component {
     }
     render() {
         if (!this.props.data?.attributes){return null} 
-        console.log(this.props.data)
+        // console.log(this.props.data)
         const price = this.props.data?.prices?this.props.data?.prices.find(obj => this.props.currentCurrency === obj.currency.symbol):null
 
         const attributesAr = this.props.data.attributes.map((obj1, index1) => {
@@ -58,9 +58,9 @@ export class CartMenuProduct extends Component {
                 </div>
 
                 <div className='CMPamountControl'>
-                    <button className='CMPamount+' onClick={()=>this.handleAmountChange('+', this.props.data)}>+</button>
+                    <button className='CMPamount plus' onClick={()=>this.handleAmountChange('+', this.props.data)}><hr/><hr/></button>
                     <div className='CMPamountValue'>{this.props.data.amount}</div>
-                    <button className='CMPamount-' onClick={()=>this.handleAmountChange('-', this.props.data)}>-</button>
+                    <button className='CMPamount minus' onClick={()=>this.handleAmountChange('-', this.props.data)}><hr/></button>
                 </div>
 
                 <div className='CMPpicture'>
