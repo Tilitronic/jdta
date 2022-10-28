@@ -61,7 +61,7 @@ class CartRoutless extends Component {
 
               <div className='cartMenuTitle'>
                 {parse("<p className='cartMenuTitleBoldPart'>My bag,&nbsp</p>")}
-                <p className='cartTitleItemcNumber'>{this.state.itemsInCart + ' items'}</p>
+                <p className='cartTitleItemcNumber'>{this.props.productsList.length + ' items'}</p>
               </div>
 
               <div className='cartMenuProductsWrapper'>
