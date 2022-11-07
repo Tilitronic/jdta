@@ -1,11 +1,8 @@
 import { Component } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { useQuery } from '@apollo/client'
 import { currencies as currenciesQuery } from '../../../api/gql.js'
-// import { setCurrentCurrency } from '../currencySlice';
 import { client } from '../../../index.js';
 
-import styles from './Currencies.scss'
+import   './Currencies.scss'
 
 export class Currencies extends Component {
     state = {data: null}

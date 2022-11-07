@@ -1,14 +1,12 @@
 import { Component } from 'react';
-// import { useNavigate, useLocation } from 'react-router-dom';
 import { withRouter } from "react-router";
-import { Link } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+
 import { client } from '../../../index.js';
 import { categories as categoriesQuery } from '../../../api/gql';
 
 
 
-import styles from './NavigationButtons.scss'
+import   './NavigationButtons.scss'
 
 class NavigationButtonsWithoutRouter extends Component {
   state = {

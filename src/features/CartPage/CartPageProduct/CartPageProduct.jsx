@@ -1,7 +1,5 @@
-import styles from './CartPageProduct.scss';
+import './CartPageProduct.scss';
 import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import {parse} from 'html-react-parser'
 import {ReactComponent as ArrowT2} from '../../../resources/icons/arrowType2.svg'
 
 export class CartPageProduct extends Component {

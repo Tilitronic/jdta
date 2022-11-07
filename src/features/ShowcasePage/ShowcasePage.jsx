@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Products } from './Products/Products';
 
-import styles from './ShowcasePage.scss';
+import   './ShowcasePage.scss';
 class ShowcasePageWithoutRouter extends Component {
   state = {
     data: null,

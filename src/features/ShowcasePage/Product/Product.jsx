@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { ReactComponent as AddToCartIcon } from '../../../resources/icons/AddToCart.svg';
 
-import styles from './Product.scss'
+import   './Product.scss'
 export class Product extends Component{
   state={
     addToCartClass: 'addToCart'

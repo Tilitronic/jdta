@@ -19,8 +19,13 @@ const reducers = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, reducers)
 
+
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+  getDefaultMiddleware({
+    serializableCheck: false,
+  }),
   devTools: process.env.NODE_ENV !== 'production',
 })
 

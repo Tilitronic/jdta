@@ -2,7 +2,7 @@ import {Component} from 'react';
 import CartPageProduct from './CartPageProduct';
 
 
-import styles from './CartPage.scss';
+import './CartPage.scss';
 
 export class CartPage extends Component{
 

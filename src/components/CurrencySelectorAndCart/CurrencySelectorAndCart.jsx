@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import { useState, useRef } from 'react';
-import { useOutsideClickDetector } from '../hooks/useOutsideClickDetector';
-
-// import { useSelector } from 'react-redux';
 
 import { ReactComponent as Arow } from '../../resources/icons/arrow.svg'
 import Cart from '../Cart';
 import { Dropdown } from '../Dropdown';
 import Currencies from './Currencies';
 
-import styles from './CurrencySelectorAndCart.scss';
-
-// const getCurrentCurrencyState = (store)=>store.currency.currentCurrency
+import   './CurrencySelectorAndCart.scss';
 
 export class CurrencySelectorAndCart extends Component {
   

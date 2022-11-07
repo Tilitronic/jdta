@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { useState, useRef } from 'react';
 import { ReactComponent as CartIcon } from '../../resources/icons/EmptyCart.svg'
 import { Dropdown } from '../Dropdown';
-import { useOutsideClickDetector } from '../hooks/useOutsideClickDetector';
-import styles from './Cart.scss';
+import   './Cart.scss';
 import CartMenuProduct from './CartMenuProduct';
 import parse from 'html-react-parser';
 import { withRouter } from 'react-router-dom';

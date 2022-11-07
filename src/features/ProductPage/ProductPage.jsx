@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { useRef, useEffect, useState } from 'react';
-// import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 import { client } from '../../index'
 import { makeProductQuery } from '../../api/gql';
-import { useSelector } from 'react-redux';
 import parse from 'html-react-parser';
 
 import { Attributes } from './Attributes/Attributes';
 import { SmallPictures } from './SmallPictures/SmallPictures';
 
-import styles from './ProductPage.scss';
+import './ProductPage.scss';
 import { withRouter } from 'react-router-dom';
 
 class ProductPageWithoutRouter extends Component {

@@ -1,5 +1,5 @@
-import {Component} from 'react'
-import styles from './SmallPictures.scss'
+import { Component } from 'react';
+import  './SmallPictures.scss';
 
 export class SmallPictures extends Component{
   render(){
@@ -8,8 +8,8 @@ export class SmallPictures extends Component{
         <div className='smallPicture' key={'thumbnail' + index}>
           <img src={el} alt={'Thumbnail picture of product'} onClick={() => this.props.setActiveImage(index)} />
         </div>
-      )
-    })
-    return elementsAr
+      );
+    });
+    return elementsAr;
   }
 }
