@@ -62,7 +62,7 @@ export class CartMenuProduct extends Component {
                 </div>
 
                 <div className='CMPpicture'>
-                    <img src={this.props.data.gallery[0]} alt='picture of added to cart product' />
+                    <img src={this.props.data.gallery[0]} alt='Added to cart product' />
                 </div>
 
             </div>

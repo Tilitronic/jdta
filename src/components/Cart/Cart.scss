@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 $cart-wrapper-height: 17px;
+
 .cartWrapper{
     max-height: $cart-wrapper-height;
     height: fit-content;
@@ -50,10 +51,11 @@ $cartMenuWidth: 325px;
 .cartMenu {
   background-color: #ffffff;
   max-height: calc(100vh - Header.$header-height);
+  overflow-y: auto;
   min-height: 30px;
   width: $cartMenuWidth;
-  overflow-x: false;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -108,6 +110,11 @@ $cartMenuWidth: 325px;
   font-family: theme.$main-font-semiBold;
 }
 ///PRODUCTS
+.cartMenuProductsWrapper{
+  max-height: calc(100vh - (Header.$header-height + 81px + 160px));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .cartMenuProductsWrapper>*{
   margin-bottom: 40px;
 }

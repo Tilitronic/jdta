@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // import { useQuery } from '@apollo/client';
 import { client } from '../../index.js';
 import { makeCategoryQuery } from '../../api/gql';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 // import { useState, useRef, useEffect } from 'react';
 // import { useSelector } from 'react-redux';

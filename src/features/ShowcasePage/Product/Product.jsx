@@ -1,7 +1,5 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import { ReactComponent as AddToCartIcon } from '../../../resources/icons/AddToCart.svg';
 
 import   './Product.scss'
@@ -51,7 +49,7 @@ export class Product extends Component{
       <div className='productItemWrapper' key={this.props.obj.id}>
         <div className='SCproductCard'>
       <div className='productItetm' onMouseOver={() => this.handleMouseOverlay('over')} onMouseOut={() => this.handleMouseOverlay('out')}>
-        <Link to={'/product'+'/'+this.props.obj.id}>
+        <Link to={'/product/'+this.props.obj.id}>
         <div className={!this.props.obj.inStock ? 'outOfStockProduct' : ''}>
           <div className={!this.props.obj.inStock ? 'outOfStockPicture' : ''}>
             <p style={{display: !this.props.obj.inStock ? 'absolute' : 'none'}} className='outOfStockText'>OUT OF STOCK</p>

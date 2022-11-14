@@ -77,7 +77,7 @@ export class CartPageProduct extends Component {
                 </div>
 
                 <div className='CPPpictureWrapper'>
-                    <img className='CPPpicture' src={this.props.data.gallery[this.state.selectedImage]} alt='picture of added to cart product' />
+                    <img className='CPPpicture' src={this.props.data.gallery[this.state.selectedImage]} alt='Added to cart product' />
                     <div 
                         className='CPPpictureControl'
                         style={{display: this.props.data.gallery.length>1 ? 'flex':'none'}}

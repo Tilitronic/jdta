@@ -1,23 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
-
-const productObject = {
-    id: '',
-    cartKey: '',
-    brand: '',
-    name: '',
-    amount: 1,
-    attributes: [],
-    prices: [],
-    gallery: []
-}
-
-const attributeObj = {
-    id: '',
-    items: [],
-    name: '',
-    selectedAttribute: 0
-}
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -29,7 +10,18 @@ export const cartSlice = createSlice({
         updateProductsList: (state, action) => {
             const sameObject = state.productsList.find(object=>object.cartKey===action.payload.cartKey)
             if(sameObject){
-                alert('The button only works once! The product has already been added to the cart!')
+                const sameObjectIndex = state.productsList.indexOf(sameObject)
+                state.productsList[sameObjectIndex].amount+=1
+                const totalPrice = action.payload.prices.map((obj)=>{
+                    const currentTotalPrice = state.totalPrice.length>0 ? state.totalPrice.find(statePriceObj=>statePriceObj?.currency?.label===obj.currency.label)?.amount : 0
+                    const newAmount =  obj.amount+currentTotalPrice;
+                    const newTotalPrice = {
+                        amount: newAmount,
+                        currency: obj.currency
+                    }
+                    return newTotalPrice
+                })
+                state.totalPrice = [...totalPrice] 
             }
             else {
                 state.productsList = [action.payload, ...state.productsList];

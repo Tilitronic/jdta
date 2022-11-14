@@ -12,14 +12,14 @@ class CartRoutless extends Component {
   };
   dropdownRef = React.createRef();
   iconRef = React.createRef();
-  handleClickOutside = this.handleClickOutside.bind(this);
+  handleClickOutside1 = this.handleClickOutside.bind(this);
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
+    document.addEventListener("mousedown", this.handleClickOutside1);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
+    document.removeEventListener("mousedown", this.handleClickOutside1);
   }
 
   handleClickOutside(event) {
