@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
-// import { useQuery } from '@apollo/client';
 import { client } from '../../index.js';
 import { makeCategoryQuery } from '../../api/gql';
 import { withRouter } from 'react-router-dom';
-// import { useState, useRef, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 
 import { Products } from './Products/Products';
 
@@ -14,31 +11,31 @@ class ShowcasePageWithoutRouter extends Component {
   state = {
     data: null,
     currentCategory: -1
-  }
+  };
   getData = function(){
     const currentCategoryIndex = this.props.currentCategory;
-    const currentCategoryName = this.props.categoryList[currentCategoryIndex]?.name
-    const categoryQuery = makeCategoryQuery(currentCategoryName)
+    const currentCategoryName = this.props.categoryList[currentCategoryIndex]?.name;
+    const categoryQuery = makeCategoryQuery(currentCategoryName);
     client
       .query({ query: categoryQuery })
       .then((result) => {
-        this.setState({ data: result.data.category })
-    })
-    this.setState({currentCategory : this.props.currentCategory})
-  }
+        this.setState({ data: result.data.category });
+      });
+    this.setState({ currentCategory : this.props.currentCategory });
+  };
   componentDidMount(){
-    this.getData()
+    this.getData();
   }
   componentDidUpdate(){
     if (this.props.categoryList.length>0 && this.state.currentCategory!==this.props.currentCategory){
-      this.getData()
+      this.getData();
     }
   }
 
-  
+
 
   render() {
-    
+
     if (this.state.data){
       return (
         <div className='showcaseWrapper'>
@@ -51,12 +48,12 @@ class ShowcasePageWithoutRouter extends Component {
             </div>
           </div>
         </div>
-      )
-    } 
-    return null
+      );
+    }
+    return null;
 
   }
 }
 
-export const ShowcasePage = withRouter(ShowcasePageWithoutRouter)
+export const ShowcasePage = withRouter(ShowcasePageWithoutRouter);
 

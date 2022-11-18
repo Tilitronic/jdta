@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { client } from '../../index'
+import { client } from '../../index';
 import { makeProductQuery } from '../../api/gql';
 import parse from 'html-react-parser';
 
@@ -14,34 +14,34 @@ class ProductPageWithoutRouter extends Component {
     activeImage: 0,
     data: null,
     selectedAttributes: {}
-  }
-  setActiveImage = (index)=> {
-    this.setState({ activeImage: index })
-  }
-  setSelectedAttributes = (name, value)=>{
-    this.setState(prevState=>({
-      selectedAttributes: {...prevState.selectedAttributes, [name]: value}
-    }))
-  }
+  };
+  setActiveImage = (index) => {
+    this.setState({ activeImage: index });
+  };
+  setSelectedAttributes = (name, value) => {
+    this.setState(prevState => ({
+      selectedAttributes: { ...prevState.selectedAttributes, [name]: value }
+    }));
+  };
   getData = function(){
-    const id = this.props.history.location.pathname
-    const productQuery = makeProductQuery(id.replaceAll('/product/', ''))
+    const id = this.props.history.location.pathname;
+    const productQuery = makeProductQuery(id.replaceAll('/product/', ''));
     client
       .query({ query: productQuery })
       .then((result) => {
-        this.setState({ data: result.data })
+        this.setState({ data: result.data });
         // console.log("result", result);
-      })
-  }
+      });
+  };
   componentDidMount() {
-    this.getData()
+    this.getData();
   }
-  
+
 
   handleAddToCartClick = function(inStock, product){
     if(!inStock){
-      alert('There is no way you can add an absent in stock item to cart!')
-    } 
+      alert('There is no way you can add an absent in stock item to cart!');
+    }
     else {
       let cartKey = product.id+'_';
       const attributesAr = [];
@@ -53,7 +53,7 @@ class ProductPageWithoutRouter extends Component {
           name: attributesObj.name,
           selectedAttribute: this.state.selectedAttributes[key]
         };
-        attributesAr.push(attribute)
+        attributesAr.push(attribute);
         cartKey+='a'+key+'i'+this.state.selectedAttributes[key]+'_';
       }
 
@@ -66,16 +66,16 @@ class ProductPageWithoutRouter extends Component {
         attributes: attributesAr,
         prices: product.prices,
         gallery: product.gallery
-      }
-      this.props.updateProductsList(Product)
+      };
+      this.props.updateProductsList(Product);
     }
-  }
+  };
 
 
   render() {
-    if (!this.state.data) { return null }
+    if (!this.state.data) { return null; }
     // console.log("this.state.data", this.state.data);
-    const price = this.state.data.product.prices.filter((obj) => obj.currency.symbol === this.props.currentCurrency)[0]
+    const price = this.state.data.product.prices.filter((obj) => obj.currency.symbol === this.props.currentCurrency)[0];
     return (
       <div className='productPageWrapper'>
         <div className='productPageElementsWrapper'>
@@ -87,7 +87,7 @@ class ProductPageWithoutRouter extends Component {
           </div>
           <div className='productDetails'>
             <div className='productName'>
-              <h1><span className='productNameBrand'>{this.state.data.product.brand+` `}</span><span>{this.state.data.product.name}</span></h1>
+              <h1><span className='productNameBrand'>{this.state.data.product.brand+' '}</span><span>{this.state.data.product.name}</span></h1>
             </div>
             <div className='productAttributes'>
               <Attributes data={this.state.data.product.attributes} setSelectedAttributes={this.setSelectedAttributes} state={this.state.selectedAttributes}/>
@@ -97,7 +97,7 @@ class ProductPageWithoutRouter extends Component {
               <p className='priceValue'>{price.currency.symbol}{price.amount}</p>
             </div>
             <div className='addToCartPPtButton'>
-              <button onClick={()=>this.handleAddToCartClick(this.state.data.product.inStock, this.state.data.product)}>ADD TO CART</button>
+              <button onClick={() => this.handleAddToCartClick(this.state.data.product.inStock, this.state.data.product)}>ADD TO CART</button>
             </div>
             <div className='productDesctiprion'>
               <div>{parse(this.state.data.product.description)}</div>
@@ -105,9 +105,9 @@ class ProductPageWithoutRouter extends Component {
           </div>
         </div>
       </div>
-    )
+    );
 
   }
 }
 
-export const ProductPage = withRouter(ProductPageWithoutRouter)
+export const ProductPage = withRouter(ProductPageWithoutRouter);

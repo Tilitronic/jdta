@@ -2,31 +2,31 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import currencyReducer from '../components/CurrencySelectorAndCart/currencySlice.js';
-import categoryReducer from '../features/ShowcasePage/categorySlice.js'
-import cartReducer from '../features/CartPage/cartSlice.js'
+import categoryReducer from '../features/ShowcasePage/categorySlice.js';
+import cartReducer from '../features/CartPage/cartSlice.js';
 
 
 const persistConfig = {
-  key: 'root',
-  storage,
-}
+    key: 'root',
+    storage,
+};
 
 const reducers = combineReducers({
-  currency: currencyReducer,
-  category: categoryReducer,
-  cart: cartReducer,
-})
+    currency: currencyReducer,
+    category: categoryReducer,
+    cart: cartReducer,
+});
 
-const persistedReducer = persistReducer(persistConfig, reducers)
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-  getDefaultMiddleware({
-    serializableCheck: false,
-  }),
-  devTools: process.env.NODE_ENV !== 'production',
-})
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
+    devTools: process.env.NODE_ENV !== 'production',
+});
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

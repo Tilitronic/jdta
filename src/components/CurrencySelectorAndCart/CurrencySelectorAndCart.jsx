@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import { ReactComponent as Arow } from '../../resources/icons/arrow.svg'
+import { ReactComponent as Arow } from '../../resources/icons/arrow.svg';
 import Cart from '../Cart';
 import { Dropdown } from '../Dropdown';
 import Currencies from './Currencies';
@@ -8,7 +8,7 @@ import Currencies from './Currencies';
 import   './CurrencySelectorAndCart.scss';
 
 export class CurrencySelectorAndCart extends Component {
-  
+
   state = {
     isShow: false,
   };
@@ -16,51 +16,51 @@ export class CurrencySelectorAndCart extends Component {
   headRef = React.createRef();
   handleClickOutside1 = this.handleClickOutside.bind(this);
 
-  handleCurrencyClick = ()=>{
-    this.setState( {isShow: !this.state.isShow})
-    this.setState({currentCurrency: this.props.currentCurrency})
+  handleCurrencyClick = () => {
+    this.setState( { isShow: !this.state.isShow });
+    this.setState({ currentCurrency: this.props.currentCurrency });
 
-  }
+  };
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside1);
+    document.addEventListener('mousedown', this.handleClickOutside1);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside1);
+    document.removeEventListener('mousedown', this.handleClickOutside1);
   }
 
   handleClickOutside(event) {
     if (
-        this.headRef && 
-        !this.headRef.current.contains(event.target) && 
-        !this.dropdownRef.current.contains(event.target) && 
+      this.headRef &&
+        !this.headRef.current.contains(event.target) &&
+        !this.dropdownRef.current.contains(event.target) &&
         this.state.isShow
-      ) {
-      this.setState( {isShow: !this.state.isShow});
+    ) {
+      this.setState( { isShow: !this.state.isShow });
     }
   }
 
-  render(){ 
+  render(){
     return(
-    <div className='currencySelectorAndCart'>
+      <div className='currencySelectorAndCart'>
 
-    <Dropdown
-      className='currencySelector'
-      isShow={this.state.isShow}
-      childrenClassName='dropdownCurrencies'
-      head={
-        <div className='currencyLogoAndArrow'>
-          <div style={{ paddingRight: '5px' }} className='currentCurrency' onClick={this.handleCurrencyClick} ref={this.headRef}>
-            {this.props.currentCurrency} <Arow className={this.state.isShow ? 'rotateArrow arrow' : 'arrow'} />
+        <Dropdown
+          className='currencySelector'
+          isShow={this.state.isShow}
+          childrenClassName='dropdownCurrencies'
+          head={
+            <div className='currencyLogoAndArrow'>
+              <div style={{ paddingRight: '5px' }} className='currentCurrency' onClick={this.handleCurrencyClick} ref={this.headRef}>
+                {this.props.currentCurrency} <Arow className={this.state.isShow ? 'rotateArrow arrow' : 'arrow'} />
+              </div>
+
+            </div>
+          }
+        >
+          <div ref={this.dropdownRef}>
+            <Currencies handleCurrencyClick={this.handleCurrencyClick}/>
           </div>
-          
-        </div>
-      }
-    >
-      <div ref={this.dropdownRef}>
-        <Currencies handleCurrencyClick={this.handleCurrencyClick}/>
+        </Dropdown>
+        <Cart />
       </div>
-    </Dropdown>
-    <Cart />
-  </div>
-)}} 
+    );}}

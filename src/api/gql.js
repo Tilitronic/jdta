@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 
 
@@ -8,9 +8,9 @@ export const categories = gql`
       name
     }
   }
-`
+`;
 export function makeCategoryQuery(categoryName='all'){
-  const category = gql`
+    const category = gql`
   query{
       category(input: { title: "${categoryName}" }){
           name,
@@ -42,14 +42,14 @@ export function makeCategoryQuery(categoryName='all'){
           }
       }
   }
-  `
-  return category
+  `;
+    return category;
 }
 
 
 export function makeProductQuery(productId = '') {
 
-  const product = gql`
+    const product = gql`
   query{
       product(id: "${productId}"){
           id,
@@ -78,8 +78,8 @@ export function makeProductQuery(productId = '') {
           brand
       }
   }
-  `
-  return product
+  `;
+    return product;
 }
 export const currencies = gql`
 query{
@@ -88,7 +88,7 @@ query{
         symbol
       }
 }
-`
+`;
 
 
 // client.query({ categories })

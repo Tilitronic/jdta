@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ReactComponent as CartIcon } from '../../resources/icons/EmptyCart.svg'
+import { ReactComponent as CartIcon } from '../../resources/icons/EmptyCart.svg';
 import { Dropdown } from '../Dropdown';
 import   './Cart.scss';
 import CartMenuProduct from './CartMenuProduct';
@@ -15,11 +15,11 @@ class CartRoutless extends Component {
   handleClickOutside1 = this.handleClickOutside.bind(this);
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside1);
+    document.addEventListener('mousedown', this.handleClickOutside1);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside1);
+    document.removeEventListener('mousedown', this.handleClickOutside1);
   }
 
   handleClickOutside(event) {
@@ -29,19 +29,19 @@ class CartRoutless extends Component {
   }
 
   handleCartClick = () => {
-    this.setState({ isShow: !this.state.isShow })
-  }
+    this.setState({ isShow: !this.state.isShow });
+  };
 
-  handleViewBagClick = ()=>{
-    this.props.history.push('/cart')
-    this.setState({ isShow: !this.state.isShow })
-  }
+  handleViewBagClick = () => {
+    this.props.history.push('/cart');
+    this.setState({ isShow: !this.state.isShow });
+  };
 
   roundNumber = function (number){
-   return Math.round((number + Number.EPSILON) * 100) / 100
-  }
+    return Math.round((number + Number.EPSILON) * 100) / 100;
+  };
   render() {
-    const totalPrice=this.props.totalPrice.find(obj=>this.props.currentCurrency===obj.currency.symbol)
+    const totalPrice=this.props.totalPrice.find(obj => this.props.currentCurrency===obj.currency.symbol);
     return (
       <div>
         <Dropdown
@@ -49,7 +49,7 @@ class CartRoutless extends Component {
           head={
             <div onClick={this.handleCartClick} ref={this.iconRef} className='cartIcon1Wrapper'>
               <CartIcon className='cartIcon1' />
-              <div className='cartItemNumber' style={{ display: this.props.productsList.length>0? 'flex': 'none'}}>{this.props.productsList.length}</div>
+              <div className='cartItemNumber' style={{ display: this.props.productsList.length>0? 'flex': 'none' }}>{this.props.productsList.length}</div>
             </div>}
           childrenClassName='cartDropdown'
           className='cartWrapper'
@@ -58,14 +58,14 @@ class CartRoutless extends Component {
             <div className='cartMenuElementsWrapper'>
 
               <div className='cartMenuTitle'>
-                {parse("<p className='cartMenuTitleBoldPart'>My bag,&nbsp</p>")}
+                {parse('<p className=\'cartMenuTitleBoldPart\'>My bag,&nbsp</p>')}
                 <p className='cartTitleItemcNumber'>{this.props.productsList.length + ' items'}</p>
               </div>
 
               <div className='cartMenuProductsWrapper'>
                 {
                   this.props.productsList.map((obj, index) => {
-                    return <CartMenuProduct data={obj} key={'productInCart' + index} />
+                    return <CartMenuProduct data={obj} key={'productInCart' + index} />;
                   })
                 }
               </div>
@@ -76,7 +76,7 @@ class CartRoutless extends Component {
               </div>
 
               <div className='cartMenuButtonsWrapper1'>
-                <button className='cMviewBagButton' onClick={()=>this.handleViewBagClick()}>VIEW BAG</button>
+                <button className='cMviewBagButton' onClick={() => this.handleViewBagClick()}>VIEW BAG</button>
                 <button className='cMcheckOutButton'>CHECK OUT</button>
               </div>
 
@@ -86,9 +86,9 @@ class CartRoutless extends Component {
         </Dropdown>
         <div className={this.state.isShow ? 'cartDirtyWindow' : ''}></div>
       </div>
-    )
+    );
   }
 }
 
-export const Cart = withRouter(CartRoutless); 
+export const Cart = withRouter(CartRoutless);
 
